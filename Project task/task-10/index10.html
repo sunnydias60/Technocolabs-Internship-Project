@@ -1,0 +1,62 @@
+<html>
+    <head>
+        
+        
+    </head>
+</html>
+
+<script> 
+    const getUserChoice = (userInput) => { 
+        userInput = userInput.toLowerCase();
+        if(userInput == "rock" || userInput =="paper" || userInput =="scissors" || userInput == "bomb" )
+            return userInput;
+        else
+            console.log(`error`);
+    }
+    
+    const getComputerChoice = () =>{
+        let num = Math.floor(Math.random() * 3);
+        if(num == 0)
+            return "rock";
+        else if(num == 1 )
+            return "paper";
+        else 
+            return "scissors";
+    }
+    const determineWinner = (getUserChoice, getComputerChoice) =>{
+        if(getUserChoice == getComputerChoice)
+            return "the game was a tie";
+        if(getUserChoice == "rock")
+        {
+            if(getComputerChoice == "paper")
+                return "computer won";
+            else 
+                return "user won";
+        }
+        if(getUserChoice == "paper")
+        {
+            if(getComputerChoice == "scissors")
+                return "computer won";
+            else
+                return "user won";
+        }
+        if(getUserChoice == "scissors")
+        {
+            if(getComputerChoice == "paper")
+                return "user won";
+            else
+                return "computer won";
+        }
+        if(getUserChoice == "bomb");
+        return "user won";
+    }
+    const playGame = () =>{
+        var userChoice = getUserChoice("bomb");
+        console.log(`${userChoice}`);
+        var computerChoice = getComputerChoice();
+        console.log(`${computerChoice}`);
+        console.log(`${determineWinner(userChoice,computerChoice)}`);
+    }
+    playGame();
+        
+</script>
